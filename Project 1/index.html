@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  
+
   <div id="app">
     <h1>
       My Platzi´s course💚
@@ -25,21 +25,24 @@
     </p>
     <div>
       <h3>Lista de Cursos</h3>
-      <p class="red">Aun no has realizado cursos</p>
-      <div>
+      <div v-if="courses.length == 0">
+        <p class="red">Aun no has realizado cursos</p>
+      </div>
+      <div v-else>
         <ol v-for="course in courses">
           <!-- Lista de cursos -->
-          <li>{{ course.title }}</li>
+          <li>{{ course.title }} || Horas: {{ course.time }}</li>
         </ol>
-        <hr />
-        <p>
-          Llevo <strong>{{ totalTime }}</strong> horas aprendiendo en Platzi.</b>
-        </p>
       </div>
+      <hr />
+      <p>
+        Llevo <strong>{{ totalTime }}</strong> horas aprendiendo en Platzi.</b>
+      </p>
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+  <script src="app.js"></script>
 
 </body>
 

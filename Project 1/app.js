@@ -28,14 +28,18 @@ new Vue({
     
     computed: {
         totalTime(){
-            return this.courses.reduce((acum, course)=> acum + course.time);
+            if(this.courses.length != 0){
+                return this.courses.reduce((acum, course)=> acum + course.time, 0);
+            }else{
+                return 0;
+            }
         }
     },
     
     methods: {
         addCourse(){
             if(this.title && this.time){
-                this.courses.push({ title: this.title, time: this.time });
+                this.courses.push({ title: this.title, time: parseInt(this.time) });
             }
         }
     }
